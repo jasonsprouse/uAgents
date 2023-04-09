@@ -2,4 +2,4 @@
 *.py[cgo]
 __pycache__
 *.json
-
+examples/12-send-tokens/.env

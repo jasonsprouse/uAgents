@@ -1,6 +1,11 @@
 from uagents import Agent, Bureau, Context, Model
 from uagents.network import wait_for_tx_to_complete
 from uagents.setup import fund_agent_if_low
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+seed_phrase = os.getenv("SEED")
 
 
 class PaymentRequest(Model):
@@ -16,7 +21,7 @@ class TransactionInfo(Model):
 AMOUNT = 100
 DENOM = "atestfet"
 
-alice = Agent(name="alice", seed="alice secret phrase")
+alice = Agent(name="alice", seed=seed_phrase)
 bob = Agent(name="bob", seed="bob secret phrase")
 
 fund_agent_if_low(alice.wallet.address())
